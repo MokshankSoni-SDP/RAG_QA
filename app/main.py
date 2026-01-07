@@ -14,6 +14,9 @@ from app.chunking import semantic_chunk_text
 from app.embeddings import generate_embedding
 from app.database import insert_chunk
 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 class QuestionRequest(BaseModel):
     question: str

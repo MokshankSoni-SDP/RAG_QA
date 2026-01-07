@@ -10,9 +10,6 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 
 def build_prompt(question: str, contexts: List[Dict]) -> str:
-    """
-    Build a strict prompt to prevent hallucination.
-    """
 
     context_text = "\n\n".join(
         f"[Document: {c['document']} | Chunk {c['chunk_id']}]\n{c['text']}"
@@ -38,9 +35,6 @@ Answer:
 
 
 def generate_answer(prompt: str) -> str:
-    """
-    Generate answer using OpenRouter.
-    """
 
     if not OPENROUTER_API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
